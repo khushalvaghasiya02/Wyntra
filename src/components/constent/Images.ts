@@ -1,0 +1,33 @@
+/* eslint-disable prettier/prettier */
+const image = {
+  INTRO: require('../../assets/images/intro.png'),
+  SHOPPING: require('../../assets/images/shopping.jpg'),
+  MAIN_LOGO: require('../../assets/images/logo.png'),
+  HOME_ICON: require('../../assets/images/home.png'),
+  MORE_ICON: require('../../assets/images/menu.png'),
+  BACK_ARROW: require('../../assets/images/backArrow.png'),
+  CATEGORIES_ICON: require('../../assets/images/categories.png'),
+  CART_ICON: require('../../assets/images/cart.png'),
+  SEARCH_ICON: require('../../assets/images/search.png'),
+  PROFILE: require('../../assets/images/profile.jpg'),
+  BACKGROUND: require('../../assets/images/background.png'),
+  BACk: require('../../assets/images/back.jpg'),
+  BACk2: require('../../assets/images/back2.jpg'),
+  BACk3: require('../../assets/images/back3.jpg'),
+  MEN: require('../../assets/images/tshirt.png'),
+  WOMEN: require('../../assets/images/dress.png'),
+  KIDS: require('../../assets/images/baby-boy.png'),
+  JEWELLERY: require('../../assets/images/diamond-ring.png'),
+  STAR_ICON: require('../../assets/images/star.png'),
+  RIGHT_ARROW: require('../../assets/images/right-chevron.png'),
+  LEFT_ARROW: require('../../assets/images/left-arrow.png'),
+  SHARE_ICON: require('../../assets/images/share.png'),
+  CROSE_ICON: require('../../assets/images/close.png'),
+  DELETE_ICON: require('../../assets/images/delete.png'),
+  USER_ICON: require('../../assets/images/user.png'),
+  NOT_CART: require('../../assets/images/shopping-cart.png'),
+  FILTER_ICON: require('../../assets/images/filter.png'),
+  LOGOUT_ICON: require('../../assets/images/logout.png'),
+};
+
+export default image;

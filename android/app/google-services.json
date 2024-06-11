@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "385668059967",
+    "project_id": "wyntra-fba17",
+    "storage_bucket": "wyntra-fba17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:385668059967:android:62538735f3c217343df98a",
+        "android_client_info": {
+          "package_name": "com.wyntra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "385668059967-cnn8dlt049hf6ci192igvk3bi8h395rf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvs0HhmtELN7eD39QxdRR9WockjivqVhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "385668059967-cnn8dlt049hf6ci192igvk3bi8h395rf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
