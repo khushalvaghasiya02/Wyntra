@@ -225,6 +225,7 @@ const styles = StyleSheet.create({
   },
   description: {
     marginBottom: 10,
+    color: colors.grayColor,
   },
   categoryText: {
     marginBottom: 10,
