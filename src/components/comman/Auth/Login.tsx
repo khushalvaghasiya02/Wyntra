@@ -123,6 +123,7 @@ const Login = () => {
           <Text style={styles.label}>Your Email</Text>
           <TextInput
             placeholder="Enter your email"
+            placeholderTextColor={colors.grayColor}
             style={styles.input}
             keyboardType="email-address"
             autoCapitalize="none"
@@ -132,6 +133,7 @@ const Login = () => {
           <Text style={styles.label}>Your Password</Text>
           <TextInput
             placeholder="Enter your password"
+            placeholderTextColor={colors.grayColor}
             style={styles.input}
             secureTextEntry={true}
             onChangeText={text => setPassword(text)}

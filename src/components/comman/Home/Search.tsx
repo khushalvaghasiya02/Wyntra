@@ -42,6 +42,7 @@ const Search = () => {
       <View style={styles.content}>
         <TextInput
           placeholder="Search Product"
+          placeholderTextColor={colors.grayColor}
           onChangeText={text => setSearch(text)}
           value={search}
           style={styles.searchBar}

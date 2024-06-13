@@ -41,28 +41,28 @@ const Modals = ({show, setShow, sortItemsByName, sortItemsByPrice}) => {
                 onPress={() => {
                   sortItemsByName(false);
                 }}>
-                <Text>Title - A to Z</Text>
+                <Text style={styles.title}>Title - A to Z</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.btn}
                 onPress={() => {
                   sortItemsByName(true);
                 }}>
-                <Text>Title - Z to A</Text>
+                <Text style={styles.title}>Title - Z to A</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.btn}
                 onPress={() => {
                   sortItemsByPrice(false);
                 }}>
-                <Text>Price - Low to High</Text>
+                <Text style={styles.title}>Price - Low to High</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.btn}
                 onPress={() => {
                   sortItemsByPrice(true);
                 }}>
-                <Text>Price - High to Low </Text>
+                <Text style={styles.title}>Price - High to Low </Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -110,6 +110,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+  title: {
+    fontSize: 16,
+    color: colors.black,
+    fontFamily: fonts.PoppinsMedium,
   },
   option: {
     paddingHorizontal: 20,

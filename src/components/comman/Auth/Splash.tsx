@@ -2,7 +2,8 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import image from '../../constent/Images';
-import { fonts } from '../../constent/fonts';
+import {fonts} from '../../constent/fonts';
+import {colors} from '../../constent/Colors';
 
 const Splash = ({navigation}) => {
   useEffect(() => {
@@ -37,9 +38,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontFamily:fonts.PoppinsBoldItalic,
+    fontFamily: fonts.PoppinsBoldItalic,
     marginBottom: 20,
     textTransform: 'uppercase',
+    color: colors.grayColor,
   },
 });
 

@@ -76,6 +76,7 @@ const Registration = ({navigation}: any) => {
           <Text style={styles.label}>Name</Text>
           <TextInput
             placeholder="Enter your name"
+            placeholderTextColor={colors.grayColor}
             style={styles.input}
             onChangeText={text => setName(text)}
             value={name}
@@ -83,6 +84,7 @@ const Registration = ({navigation}: any) => {
           <Text style={styles.label}>Email</Text>
           <TextInput
             placeholder="Enter your email"
+            placeholderTextColor={colors.grayColor}
             style={styles.input}
             keyboardType="email-address"
             autoCapitalize="none"
@@ -92,6 +94,7 @@ const Registration = ({navigation}: any) => {
           <Text style={styles.label}>Password</Text>
           <TextInput
             placeholder="Enter your password"
+            placeholderTextColor={colors.grayColor}
             style={styles.input}
             secureTextEntry={true}
             onChangeText={text => setPassword(text)}
@@ -100,6 +103,7 @@ const Registration = ({navigation}: any) => {
           <Text style={styles.label}>Phone No</Text>
           <TextInput
             placeholder="Enter your phone no"
+            placeholderTextColor={colors.grayColor}
             style={styles.input}
             keyboardType="numeric"
             onChangeText={text => setPhone(text)}
@@ -108,6 +112,7 @@ const Registration = ({navigation}: any) => {
           <Text style={styles.label}>Address</Text>
           <TextInput
             placeholder="Enter your address"
+            placeholderTextColor={colors.grayColor}
             style={styles.input}
             onChangeText={text => setAddress(text)}
             value={address}

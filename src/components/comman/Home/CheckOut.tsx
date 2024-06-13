@@ -7,11 +7,13 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  Alert,
 } from 'react-native';
 import {colors} from '../../constent/Colors';
 import EmptyList from './EmptyList';
 import {fonts} from '../../constent/fonts';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useStripe} from '@stripe/stripe-react-native';
 
 const CheckoutScreen = ({route}) => {
   const {cartItems} = route.params;
@@ -19,6 +21,8 @@ const CheckoutScreen = ({route}) => {
   const [discount, setDiscount] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
   const [parsedUser, setParsedUser] = useState(null);
+
+  const {initPaymentSheet, presentPaymentSheet} = useStripe();
 
   useEffect(() => {
     const checkUserToken = async () => {
@@ -43,6 +47,74 @@ const CheckoutScreen = ({route}) => {
     };
     checkUserToken();
   }, [cartItems]);
+
+  const createPaymentIntent = async (amount: number) => {
+    console.log(amount);
+    try {
+      const response = await fetch(
+        'https://7b1f-116-74-113-117.ngrok-free.app/payments/intents',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({amount}),
+        },
+      );
+
+      console.log('response', response);
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message);
+      }
+
+      return data;
+    } catch (error) {
+      console.error(error);
+      Alert.alert('Error', 'Failed to create payment intent');
+      return null;
+    }
+  };
+
+  const onCheckout = async () => {
+    const paymentIntentData = await createPaymentIntent(
+      Math.floor((total - discount) * 100),
+    );
+
+    if (!paymentIntentData) {
+      return;
+    }
+    console.log(paymentIntentData);
+
+    const {error: initError} = await initPaymentSheet({
+      merchantDisplayName: 'Wyntra',
+      paymentIntentClientSecret: paymentIntentData.paymentIntent,
+      defaultBillingDetails: {
+        name: parsedUser?.name || 'Jane Doe',
+      },
+    });
+
+    if (initError) {
+      Alert.alert('Something went wrong', initError.message);
+      return;
+    }
+
+    const {error: paymentError} = await presentPaymentSheet();
+
+    if (paymentError) {
+      Alert.alert(`Error code: ${paymentError.code}`, paymentError.message);
+      return;
+    }
+
+    onCreateOrder();
+  };
+
+  const onCreateOrder = () => {
+    console.log('Order created successfully!');
+    Alert.alert('Success', 'Payment successful and order created!');
+  };
 
   const renderItem = ({item}) => (
     <View style={styles.item}>
@@ -97,10 +169,7 @@ const CheckoutScreen = ({route}) => {
             </Text>
           </View>
           <View style={styles.btns}>
-            <TouchableOpacity
-              style={styles.btn}
-              //   onPress={() => navigation.navigate('CheckOut', {cartItems})}
-            >
+            <TouchableOpacity style={styles.btn} onPress={onCheckout}>
               <Text style={styles.btnText}>Pay</Text>
             </TouchableOpacity>
           </View>
