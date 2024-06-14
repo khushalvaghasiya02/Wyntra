@@ -17,7 +17,7 @@ import {fonts} from '../../constent/fonts';
 const Slider = () => {
   const navigation = useNavigation();
 
-  const {width} = Dimensions.get('window');
+  const {width} = Dimensions.get('screen');
   const height = width * 0.5;
   const [active, setActive] = useState(0);
   const scrollViewRef = useRef(null);
@@ -134,13 +134,15 @@ const styles = StyleSheet.create({
     fontFamily: fonts.PoppinsRegular,
   },
   button: {
-    width: '36%',
-    paddingHorizontal: 15,
+    width: '40%',
+    paddingHorizontal: 10,
     paddingVertical: 8,
     borderWidth: 1,
     borderColor: colors.white,
     borderRadius: 15,
     marginTop: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   buttonText: {
     color: colors.white,
