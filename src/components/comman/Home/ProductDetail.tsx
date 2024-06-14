@@ -21,7 +21,7 @@ const ProductDetail = ({ route }) => {
         const productDetail = data.find(item => item.id === id);
         setProduct(productDetail);
       } catch (error) {
-        console.error('Error fetching product:', error);
+        Alert.alert('Error fetching product:', error);
       }
     };
 

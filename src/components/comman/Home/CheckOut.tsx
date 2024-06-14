@@ -42,7 +42,7 @@ const CheckoutScreen = ({route}) => {
           setParsedUser(parsedUser);
         }
       } catch (error) {
-        console.error('Error checking logged in status:', error);
+        Alert.alert('Error checking logged in status:', error);
       }
     };
     checkUserToken();
@@ -72,7 +72,7 @@ const CheckoutScreen = ({route}) => {
 
       return data;
     } catch (error) {
-      console.error(error);
+      Alert.alert(error);
       Alert.alert('Error', 'Failed to create payment intent');
       return null;
     }

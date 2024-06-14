@@ -29,7 +29,7 @@ const Cart = () => {
           setCartItems(JSON.parse(cart));
         }
       } catch (error) {
-        console.error('Error fetching cart items:', error);
+        Alert.alert('Error fetching cart items:', error);
       }
     };
 
@@ -41,7 +41,7 @@ const Cart = () => {
       await AsyncStorage.setItem('cart', JSON.stringify(newCartItems));
       setCartItems(newCartItems);
     } catch (error) {
-      console.error('Error updating cart items:', error);
+      Alert.alert('Error updating cart items:', error);
     }
   };
 

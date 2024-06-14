@@ -55,7 +55,7 @@ const ProductDetailInfo = ({product, size, selectedItem, setSelectedItem}) => {
       await AsyncStorage.setItem('cart', JSON.stringify(cartItems));
       Alert.alert('Success', 'Product added to cart!');
     } catch (error) {
-      console.error('Error adding to cart:', error);
+      Alert.alert('Error adding to cart:', error);
       Alert.alert('Error', 'Failed to add product to cart.');
     }
   };

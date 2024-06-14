@@ -32,7 +32,7 @@ const Profile = () => {
       Alert.alert('User signed out!');
       navigation.navigate('Login');
     } catch (error) {
-      console.error('Error signing out:', error);
+      Alert.alert('Error signing out:', error);
     }
   };
 
@@ -45,7 +45,7 @@ const Profile = () => {
           setParsedUser(parsedUser);
         }
       } catch (error) {
-        console.error('Error checking logged in status:', error);
+        Alert.alert('Error checking logged in status:', error);
       }
     };
     checkUserToken();

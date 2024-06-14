@@ -28,7 +28,7 @@ const Header = () => {
           setUserAvatar(parsedUser.avatar);
         }
       } catch (error) {
-        console.error('Error checking logged in status:', error);
+        Alert.alert('Error checking logged in status:', error);
       }
     };
     checkUserToken();

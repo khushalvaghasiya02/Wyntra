@@ -52,7 +52,7 @@ const Intro = ({navigation}) => {
         return () => unsubscribe();
       }
     } catch (error) {
-      console.error('Error checking logged in status:', error);
+      Alert.alert('Error checking logged in status:', error);
     }
   };
   return (

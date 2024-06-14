@@ -47,11 +47,11 @@ const Login = () => {
       })
       .catch(error => {
         if (error.code === 'auth/wrong-password') {
-          console.log('Wrong password provided!');
+          Alert.alert('Wrong password provided!');
         } else if (error.code === 'auth/user-not-found') {
-          console.log('User not found!');
+          Alert.alert('User not found!');
         } else {
-          console.error(error);
+          Alert.alert(error);
         }
       });
   };
@@ -60,7 +60,7 @@ const Login = () => {
     const unsubscribe = ref.onSnapshot(querySnapshot => {
       const list = [];
       querySnapshot.forEach(doc => {
-        const {name, email, phone, avatar, uid,address} = doc.data();
+        const {name, email, phone, avatar, uid, address} = doc.data();
         list.push({
           id: doc.id,
           uid,
@@ -68,7 +68,7 @@ const Login = () => {
           email,
           phone,
           avatar,
-          address
+          address,
         });
       });
 
@@ -98,16 +98,14 @@ const Login = () => {
         Alert.alert('Play services not available or outdated');
       } else {
         Alert.alert('Something went wrong with Google Sign In');
-        console.error('Google Sign In Error:', error);
+        Alert.alert('Google Sign In Error:', error);
       }
     }
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.loginBox}>
+    <View  style={styles.container}>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.contentBox}>
           <View style={styles.logoContain}>
             <Image source={image.INTRO} style={styles.image} />
@@ -146,43 +144,42 @@ const Login = () => {
           <View style={styles.bottom}>
             <View style={styles.orLines}>
               <View style={styles.orLine}></View>
-              <Text>OR</Text>
+              <Text style={{color: colors.grayColor}}>OR</Text>
               <View style={styles.orLine}></View>
             </View>
           </View>
-
-          <GoogleSigninButton
-            size={GoogleSigninButton.Size.Wide}
-            color={GoogleSigninButton.Color.Light}
-            onPress={signIn}
-            style={styles.googleBtn}
-          />
-
-          <View style={styles.reg}>
-            <Text style={styles.regText}>
-              Don't have an account?{' '}
-              <Pressable onPress={() => navigation.navigate('Registration')}>
-                <Text style={styles.regLink}>Sign up</Text>
-              </Pressable>
-            </Text>
-          </View>
         </View>
-      </KeyboardAvoidingView>
-    </ScrollView>
+          <View style={styles.googleBtn}>
+            <GoogleSigninButton
+              size={GoogleSigninButton.Size.Wide}
+              color={GoogleSigninButton.Color.Light}
+              onPress={signIn}
+            />
+
+            <View style={styles.reg}>
+              <Text style={styles.regText}>
+                Don't have an account?{' '}
+                <Pressable onPress={() => navigation.navigate('Registration')}>
+                  <Text style={styles.regLink}>Sign up</Text>
+                </Pressable>
+              </Text>
+            </View>
+          </View>
+      </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    flex: 1,
     backgroundColor: colors.white,
+  },
+  scrollContainer: {
+    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  loginBox: {
-    width: '80%',
-    height: '70%',
-    borderRadius: 10,
+    gap: 20,
   },
   input: {
     width: '100%',
@@ -192,17 +189,18 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderBottomWidth: 1,
     borderColor: colors.primaryColor,
-    marginBottom: 30,
+    marginBottom: '6%',
   },
   contentBox: {
-    flex: 1,
-    justifyContent: 'center',
+    width: '100%',
     alignItems: 'center',
+    paddingHorizontal: 20,
   },
   logoContain: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 10,
   },
   image: {
     width: 100,
@@ -216,25 +214,22 @@ const styles = StyleSheet.create({
     fontFamily: fonts.PoppinsBold,
     color: colors.grayColor,
   },
-  title: {
-    color: colors.primaryColor,
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginVertical: 20,
-  },
   welcome: {
     textAlign: 'center',
     fontSize: 14,
-    marginBottom: 20,
+    marginBottom: 10,
     fontFamily: fonts.PoppinsRegular,
+    color: colors.grayColor,
   },
   googleBtn: {
-    marginBottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10,
   },
   orLines: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 20,
+    marginVertical: 10,
     gap: 10,
   },
   orLine: {
@@ -243,19 +238,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#CDD1D0',
   },
   inputBox: {
-    flex: 1,
+    width: '100%',
+    paddingHorizontal: 20,
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
   },
   label: {
     fontSize: 16,
     color: colors.primaryColor,
-    marginBottom: 10,
+    marginBottom: 5,
     fontFamily: fonts.PoppinsRegular,
   },
   btn: {
+    width: '100%',
     borderRadius: 34,
     paddingVertical: 10,
     backgroundColor: colors.primaryColor,
+    marginBottom: 10,
   },
   text: {
     color: 'white',
@@ -263,9 +262,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: fonts.PoppinsMedium,
   },
-  bottom: {alignItems: 'center'},
+  bottom: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   reg: {
-    marginTop: 20,
+    marginTop: 10,
     alignItems: 'center',
     justifyContent: 'center',
   },
