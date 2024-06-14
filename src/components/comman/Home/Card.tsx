@@ -23,7 +23,9 @@ const Card = (props: Data) => {
   return (
     <Pressable
       style={styles.card}
-      onPress={() => navigation.navigate('ProductDetail', {id: id, name: category})}>
+      onPress={() =>
+        navigation.navigate('ProductDetail', {id: id, name: category})
+      }>
       <Image source={{uri: images}} style={styles.image} />
       <View style={styles.content}>
         <Text style={styles.categories}>{category}</Text>
@@ -93,6 +95,7 @@ const styles = StyleSheet.create({
   review: {
     marginRight: 5,
     fontFamily: fonts.PoppinsRegular,
+    color: colors.grayColor,
   },
   count: {
     color: colors.grayColor,

@@ -153,6 +153,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: 18,
     fontFamily: fonts.PoppinsBoldItalic,
+    marginLeft: 20,
   },
   header: {
     alignItems: 'center',

@@ -45,7 +45,6 @@ const ProductList = ({route}) => {
     setProductList(sortedList);
     setModalVisible(false);
   };
-  
   const renderProductCard = ({item}: {item: Data}) => (
     <Card
       id={item.id}
@@ -104,7 +103,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: colors.primaryColor,
     marginBottom: 10,
-    width: '40%',
+    width: '38%',
     borderTopRightRadius: 25,
     borderBottomRightRadius: 25,
   },
@@ -117,6 +116,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: 18,
     fontFamily: fonts.PoppinsBoldItalic,
+    marginRight: 20,
   },
   filter: {
     width: 50,

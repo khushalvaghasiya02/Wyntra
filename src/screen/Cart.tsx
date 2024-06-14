@@ -148,7 +148,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 15,
-
   },
   toggle: {
     paddingLeft: 10,
@@ -162,7 +161,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primaryColor,
     marginBottom: 10,
     marginTop: 20,
-    width: '25%',
+    width: '28%',
     borderTopLeftRadius: 25,
     borderBottomLeftRadius: 25,
   },
@@ -175,6 +174,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: 18,
     fontFamily: fonts.PoppinsBoldItalic,
+    marginLeft: 20,
   },
   list: {
     paddingHorizontal: 20,
