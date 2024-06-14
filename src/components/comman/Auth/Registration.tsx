@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {
+  Alert,
   Image,
   KeyboardAvoidingView,
   Platform,
@@ -60,9 +61,7 @@ const Registration = ({navigation}: any) => {
   };
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}>
+    <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.contentBox}>
           <View style={styles.logoContain}>
@@ -122,7 +121,7 @@ const Registration = ({navigation}: any) => {
           </TouchableOpacity>
         </View>
       </ScrollView>
-    </KeyboardAvoidingView>
+    </View>
   );
 };
 
@@ -135,63 +134,70 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 20,
+    gap: 20,
   },
   input: {
     width: '100%',
     height: 40,
+    color: colors.black,
     backgroundColor: colors.white,
     borderRadius: 10,
     borderBottomWidth: 1,
     borderColor: colors.primaryColor,
-    marginBottom: 20,
-    color: colors.black,
-    paddingHorizontal: 10,
+    marginBottom: '6%',
   },
   contentBox: {
-    width: '80%',
-    alignItems: 'center',
+    width: '100%',
+    paddingHorizontal: 20,
   },
   logoContain: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 10,
   },
   image: {
     width: 100,
     height: 100,
     resizeMode: 'cover',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   logoText: {
-    fontSize: 36,
+    fontSize: 32,
     fontFamily: fonts.PoppinsBold,
     color: colors.grayColor,
-    marginLeft: 10,
   },
   welcome: {
     textAlign: 'center',
     fontSize: 14,
-    marginBottom: 20,
+    marginBottom: 10,
     fontFamily: fonts.PoppinsRegular,
+    color: colors.grayColor,
+  },
+  inputBox: {
+    width: '100%',
+    paddingHorizontal: 20,
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
   },
   label: {
     fontSize: 16,
     color: colors.primaryColor,
-    alignSelf: 'flex-start',
+    marginBottom: 5,
     fontFamily: fonts.PoppinsRegular,
   },
   btn: {
+    width: '100%',
     borderRadius: 34,
     paddingVertical: 10,
     backgroundColor: colors.primaryColor,
-    width: '100%',
-    alignItems: 'center',
-    marginTop: 20,
+    marginBottom: 10,
   },
   text: {
     color: 'white',
     fontSize: 18,
+    textAlign: 'center',
     fontFamily: fonts.PoppinsMedium,
   },
 });
