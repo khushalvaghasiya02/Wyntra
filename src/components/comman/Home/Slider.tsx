@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { useNavigation } from '@react-navigation/native';
-import React, { useEffect, useRef, useState } from 'react';
+import {useNavigation} from '@react-navigation/native';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   Dimensions,
   ImageBackground,
@@ -8,22 +8,21 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native';
-import { colors } from '../../constent/Colors';
-import { slides } from '../../constent/Data';
-import { fonts } from '../../constent/fonts';
-
+import {colors} from '../../constent/Colors';
+import {slides} from '../../constent/Data';
+import {fonts} from '../../constent/fonts';
 
 const Slider = () => {
   const navigation = useNavigation();
 
-  const { width } = Dimensions.get('window');
+  const {width} = Dimensions.get('window');
   const height = width * 0.5;
   const [active, setActive] = useState(0);
   const scrollViewRef = useRef(null);
 
-  const change = ({ nativeEvent }) => {
+  const change = ({nativeEvent}) => {
     const slide = Math.ceil(
       nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width,
     );
@@ -40,7 +39,7 @@ const Slider = () => {
           animated: true,
         });
       } else {
-        scrollViewRef.current.scrollTo({ x: 0, animated: true });
+        scrollViewRef.current.scrollTo({x: 0, animated: true});
       }
     }, 3000);
 
@@ -55,31 +54,32 @@ const Slider = () => {
         horizontal
         onScroll={change}
         showsHorizontalScrollIndicator={false}
-        style={{ width, height }}>
+        style={{width, height}}>
         {slides.map((item, index) => (
           <ImageBackground
             key={index}
             source={item.image}
             resizeMode="cover"
-            style={{ width, height, resizeMode: 'cover' }}>
+            style={{width, height, resizeMode: 'cover'}}>
             <View style={styles.overlay}>
               <View style={styles.offers}>
                 <Text style={styles.text}>{item.title}</Text>
                 <Text style={styles.off}>{item.discount}</Text>
                 <Text style={styles.contein}>{item.description}</Text>
-                <TouchableOpacity style={styles.button}   onPress={() => navigation.navigate('AllProduct')}>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => navigation.navigate('AllProduct')}>
                   <Text style={styles.buttonText}>Check this out</Text>
                 </TouchableOpacity>
               </View>
+              <View></View>
             </View>
           </ImageBackground>
         ))}
       </ScrollView>
       <View style={styles.pagination}>
         {slides.map((i, k) => (
-          <Text
-            key={k}
-            style={k === active ? styles.activeDot : styles.dot}>
+          <Text key={k} style={k === active ? styles.activeDot : styles.dot}>
             ●
           </Text>
         ))}
@@ -107,12 +107,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   overlay: {
+    width: '100%',
+    height: '100%',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   offers: {
-    padding: 20,
-    marginTop: 20,
-    marginBottom: 20,
+    alignItems: 'flex-start',
+    paddingHorizontal: '5%',
+    paddingVertical: '8%',
   },
   text: {
     color: 'white',
