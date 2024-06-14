@@ -1,21 +1,22 @@
 /* eslint-disable prettier/prettier */
-import React, { useState, useRef, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useRef, useState } from 'react';
 import {
-  View,
-  Text,
   Dimensions,
-  ScrollView,
-  Image,
-  StyleSheet,
   ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
   TouchableOpacity,
+  View
 } from 'react-native';
 import { colors } from '../../constent/Colors';
-import images from '../../constent/Images';
-import { fonts } from '../../constent/fonts';
 import { slides } from '../../constent/Data';
+import { fonts } from '../../constent/fonts';
+
 
 const Slider = () => {
+  const navigation = useNavigation();
 
   const { width } = Dimensions.get('window');
   const height = width * 0.5;
@@ -66,7 +67,7 @@ const Slider = () => {
                 <Text style={styles.text}>{item.title}</Text>
                 <Text style={styles.off}>{item.discount}</Text>
                 <Text style={styles.contein}>{item.description}</Text>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}   onPress={() => navigation.navigate('AllProduct')}>
                   <Text style={styles.buttonText}>Check this out</Text>
                 </TouchableOpacity>
               </View>
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.PoppinsRegular,
   },
   button: {
-    width: '40%',
+    width: '36%',
     paddingHorizontal: 15,
     paddingVertical: 8,
     borderWidth: 1,

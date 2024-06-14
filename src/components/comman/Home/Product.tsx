@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 20,
+    paddingVertical: '2%',
+    paddingHorizontal:'4%'
   },
   headerText: {
     fontSize: 18,
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.PoppinsBold,
   },
   button: {
-    padding: 10,
+    padding: 8,
     borderRadius: 5,
     backgroundColor: colors.primaryColor,
   },

@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, {useEffect, useState} from 'react';
 import {
+  Alert,
   Image,
   Pressable,
   StyleSheet,
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
-    paddingVertical: 10,
+    paddingVertical: '3%',
   },
   btn: {
     padding: 8,
