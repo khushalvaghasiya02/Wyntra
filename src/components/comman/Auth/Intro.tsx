@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ImageBackground,
+  Alert,
 } from 'react-native';
 import image from '../../constent/Images';
 import {colors} from '../../constent/Colors';
@@ -52,7 +53,7 @@ const Intro = ({navigation}) => {
         return () => unsubscribe();
       }
     } catch (error) {
-      Alert.alert('Error checking logged in status:', error);
+      Alert.alert('checking logged in status:', error);
     }
   };
   return (

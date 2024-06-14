@@ -31,7 +31,7 @@ const ProductDetailInfo = ({product, size, selectedItem, setSelectedItem}) => {
 
   const addToCart = async () => {
     if (selectedItem === null) {
-      Alert.alert('Error', 'Please select a size.');
+      Alert.alert('Please select a size.');
       return;
     }
     try {
@@ -55,8 +55,8 @@ const ProductDetailInfo = ({product, size, selectedItem, setSelectedItem}) => {
       await AsyncStorage.setItem('cart', JSON.stringify(cartItems));
       Alert.alert('Success', 'Product added to cart!');
     } catch (error) {
-      Alert.alert('Error adding to cart:', error);
-      Alert.alert('Error', 'Failed to add product to cart.');
+      Alert.alert('adding to cart:', error);
+      Alert.alert('Failed to add product to cart.');
     }
   };
 

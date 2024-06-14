@@ -33,7 +33,7 @@ const CustomDrawer = props => {
           setUser(parsedUser);
         }
       } catch (error) {
-        Alert.alert('Error checking logged in status:', error);
+        Alert.alert('checking logged in status:', error);
       }
     };
     checkUserToken();
@@ -47,7 +47,7 @@ const CustomDrawer = props => {
       Alert.alert('User signed out!');
       navigation.navigate('Login');
     } catch (error) {
-      Alert.alert('Error signing out:', error);
+      Alert.alert('signing out:', error);
     }
   };
   return (

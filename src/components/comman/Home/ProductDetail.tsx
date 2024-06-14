@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 // ProductDetail.js
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList, Alert } from 'react-native';
 import { data } from '../../constent/Data';
 import { colors } from '../../constent/Colors';
 import { fonts } from '../../constent/fonts';
@@ -21,7 +21,7 @@ const ProductDetail = ({ route }) => {
         const productDetail = data.find(item => item.id === id);
         setProduct(productDetail);
       } catch (error) {
-        Alert.alert('Error fetching product:', error);
+        Alert.alert('fetching product:', error);
       }
     };
 

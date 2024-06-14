@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {colors} from '../components/constent/Colors';
@@ -29,7 +30,7 @@ const Cart = () => {
           setCartItems(JSON.parse(cart));
         }
       } catch (error) {
-        Alert.alert('Error fetching cart items:', error);
+        Alert.alert('fetching cart items:', error);
       }
     };
 
@@ -41,7 +42,7 @@ const Cart = () => {
       await AsyncStorage.setItem('cart', JSON.stringify(newCartItems));
       setCartItems(newCartItems);
     } catch (error) {
-      Alert.alert('Error updating cart items:', error);
+      Alert.alert('updating cart items:', error);
     }
   };
 

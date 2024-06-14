@@ -29,7 +29,7 @@ const Header = () => {
           setUserAvatar(parsedUser.avatar);
         }
       } catch (error) {
-        Alert.alert('Error checking logged in status:', error);
+        Alert.alert('checking logged in status:', error);
       }
     };
     checkUserToken();
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
-    paddingVertical: '3%',
+    paddingVertical: '5%',
   },
   btn: {
     padding: 8,

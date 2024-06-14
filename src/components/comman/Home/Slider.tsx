@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     paddingHorizontal: '5%',
     paddingVertical: '8%',
+    marginBottom: '4%',
   },
   text: {
     color: 'white',
